@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new BookmarkFragment();
                         break;
                 }
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
                 return true;
             }
         });
