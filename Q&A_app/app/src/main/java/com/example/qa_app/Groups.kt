@@ -20,49 +20,45 @@ import org.json.JSONArray
 import org.json.JSONException
 
 class Groups : AppCompatActivity() {
-    private val titles = ArrayList<String>()
-    private val contents = ArrayList<String>()
-    private var done = false
+    //private val titles = ArrayList<String>()
+    //private val contents = ArrayList<String>()
+    //private var done = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_groups)
-        fetchInfo()
-        while(done == false) {
-            println("False")
-        }
-        println("True")
-        println("Array after initalizing:" + titles.size)
+        val bundle: Bundle? = intent.extras
+        val titleSet = bundle?.get("title_set")
+        var infoSet = bundle?.get("info_set")
+
+
         val listView = findViewById<ListView>(R.id.main_listview)
-        listView.adapter = listViewAdapter(this, titles, contents)
+        listView.adapter = listViewAdapter(this, titleSet as ArrayList<String>,
+            infoSet as ArrayList<String>
+        )
     }
 
 
 
-    private class listViewAdapter(context: Context, titles: ArrayList<String>, contents:ArrayList<String>): BaseAdapter() {
+    private class listViewAdapter(context: Context, titleSet: ArrayList<String>, infoSet:ArrayList<String>): BaseAdapter() {
         private val mContext: Context
-        private val titles: ArrayList<String>
-        private val contents: ArrayList<String>
+        private val titleSet: ArrayList<String>
+        private val infoSet: ArrayList<String>
 
-        var group = "WSU"
-        var category = "Math"
 
         private val names = arrayListOf<String>(
             "Muniker Aragon", "Steve Jobs", "Mark Zuckerberg", "Barack Obama"
         )
         init{
             mContext = context
-            //questions = Content(context, group, category)
-            //questions.fetchInfo()
-            this.titles = titles
-            //println(titles)
-            this.contents = contents
-            //println(contents)
+            this.titleSet = titleSet
+            this.infoSet = infoSet
 
         }
         // responsible for how many rows in list
         override fun getCount(): Int {
-            return names.size
+            //return names.size
+            return titleSet.size
         }
 
         override fun getItemId(position: Int): Long {
@@ -79,57 +75,14 @@ class Groups : AppCompatActivity() {
             val rowMain = layoutInflater.inflate(R.layout.row_main, null, false)
 
             val nameTextView = rowMain.findViewById<TextView>(R.id.name_textView)
-            //nameTextView.text = titles[position]
-            nameTextView.text = names.get(position)
+            nameTextView.text = titleSet[position]
+            //nameTextView.text = names.get(position)
             val positionTextView = rowMain.findViewById<TextView>(R.id.position_textview)
-            positionTextView.text = "Random content"
+            positionTextView.text = infoSet[position]
             return rowMain
 
         }
 
 
     }
-
-
-    private fun fetchInfo() {
-        var url = "http://35.173.127.87:8000/api/questions"
-        val queue = Volley.newRequestQueue(this)
-        //creating volley string request
-        val stringRequest = object : StringRequest(
-            Request.Method.POST, url,
-            Response.Listener<String> { response ->
-                try {
-                    val obj = JSONArray(response)
-                    println(obj.toString())
-                    val size = obj.length()
-                    println("Size of array" + size)
-                    for(i in 0 until size){
-                        val question = obj.getJSONObject(i)
-                        titles.add(question["title"].toString())
-                        contents.add(question["content"].toString())
-
-                    }
-                } catch (e: JSONException) {
-                    e.printStackTrace()
-                }
-            },
-            object : Response.ErrorListener {
-                override fun onErrorResponse(volleyError: VolleyError) {
-                    //Toast.makeText(this, volleyError.message, Toast.LENGTH_LONG).show()
-                }
-            }) {
-            @Throws(AuthFailureError::class)
-            override fun getParams(): Map<String, String> {
-                val params = HashMap<String, String>()
-                params.put("group", "WSU")
-                params.put("category", "math")
-                return params
-            }
-        }
-
-        //adding request to queue
-        queue.add(stringRequest)
-        done = true
-    }
-
 }
