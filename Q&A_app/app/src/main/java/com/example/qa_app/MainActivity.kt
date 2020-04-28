@@ -3,16 +3,22 @@ package com.example.qa_app
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.view.get
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONException
 
@@ -24,15 +30,41 @@ class MainActivity : AppCompatActivity() {
     private val group = "WSU"
     private val category = "math"
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var button = findViewById<Button>(R.id.button)
-        button.setOnClickListener{
-            fetchInfo()
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.questions -> {
+                    fetchInfo()
+                    true
+                }
+                R.id.home -> {
+                    fetchInfo()
+                    true
+                }
+                R.id.profile -> {
+                    fetchInfo()
+                    true
+                }
+                R.id.add_question -> {
+                    fetchInfo()
+                    true
+                }
+                R.id.search -> {
+                    fetchInfo()
+                    true
+                }
+                else -> true
+            }
         }
+
     }
+
+
 
     private fun fetchInfo() {
         var url = "http://35.173.127.87:8000/api/questions"
@@ -76,6 +108,5 @@ class MainActivity : AppCompatActivity() {
         //adding request to queue
         queue.add(stringRequest)
     }
-
 
 }
