@@ -26,23 +26,26 @@
             android:id="@+id/tabAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="All" />
+            android:text="Welcome" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabTags"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tags" />
+            android:text="Browse" />
 
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="410dp"
+        android:layout_height="629dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TabBar" />
+        app:layout_constraintTop_toBottomOf="@+id/TabBar"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"

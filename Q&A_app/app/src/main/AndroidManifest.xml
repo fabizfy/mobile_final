@@ -13,6 +13,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".Add"></activity>
+        <activity android:name=".Search"></activity>
+        <activity android:name=".Profile"></activity>
         <activity android:name=".Groups" />
         <activity
             android:name=".ScrollingActivity"

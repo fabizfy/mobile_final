@@ -6,14 +6,14 @@ import android.os.Bundle
 import android.view.Window
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class Profile : AppCompatActivity() {
+class Search : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        setContentView(R.layout.activity_search)
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNav.selectedItemId = R.id.profile
+        bottomNav.selectedItemId = R.id.search
         bottomNav.setOnNavigationItemSelectedListener{ item ->
             when (item.itemId) {
                 R.id.questions -> {
@@ -27,7 +27,9 @@ class Profile : AppCompatActivity() {
                     false
                 }
                 R.id.profile -> {
-                    true
+                    val intent = Intent(this, Profile::class.java)
+                    startActivity(intent)
+                    false
                 }
                 R.id.add_question -> {
                     val intent = Intent(this, Add::class.java)
@@ -35,9 +37,8 @@ class Profile : AppCompatActivity() {
                     false
                 }
                 R.id.search -> {
-                    val intent = Intent(this, Search::class.java)
-                    startActivity(intent)
-                    false
+                    // do something
+                    true
                 }
                 else -> true
             }

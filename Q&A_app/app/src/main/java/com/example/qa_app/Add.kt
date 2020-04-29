@@ -15,7 +15,7 @@ class Add : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.selectedItemId = R.id.add_question
         bottomNav.setOnNavigationItemSelectedListener{ item ->
-            when(item.itemId) {
+            when (item.itemId) {
                 R.id.questions -> {
                     val intent = Intent(this, Groups::class.java)
                     startActivity(intent)
@@ -27,7 +27,8 @@ class Add : AppCompatActivity() {
                     false
                 }
                 R.id.profile -> {
-                    // do something
+                    val intent = Intent(this, Profile::class.java)
+                    startActivity(intent)
                     false
                 }
                 R.id.add_question -> {
@@ -35,7 +36,8 @@ class Add : AppCompatActivity() {
                     true
                 }
                 R.id.search -> {
-                    // do something
+                    val intent = Intent(this, Search::class.java)
+                    startActivity(intent)
                     false
                 }
                 else -> true

@@ -44,7 +44,8 @@ class Groups : AppCompatActivity() {
                     false
                 }
                 R.id.profile -> {
-                    // do something
+                    val intent = Intent(this, Profile::class.java)
+                    startActivity(intent)
                     false
                 }
                 R.id.add_question -> {
@@ -53,7 +54,8 @@ class Groups : AppCompatActivity() {
                     false
                 }
                 R.id.search -> {
-                    // do something
+                    val intent = Intent(this, Search::class.java)
+                    startActivity(intent)
                     false
                 }
                 else -> true
@@ -73,7 +75,7 @@ class Groups : AppCompatActivity() {
 
 
 
-    private class listViewAdapter(context: Context, titleSet: ArrayList<String>, infoSet:ArrayList<String>): BaseAdapter() {
+    class listViewAdapter(context: Context, titleSet: ArrayList<String>, infoSet:ArrayList<String>): BaseAdapter() {
         private val mContext: Context
         private val titleSet: ArrayList<String>
         private val infoSet: ArrayList<String>
