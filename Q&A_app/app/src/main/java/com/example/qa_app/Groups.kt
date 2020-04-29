@@ -18,6 +18,7 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
 import org.json.JSONException
 
@@ -30,14 +31,17 @@ class Groups : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_groups)
 
+        var fab = findViewById<FloatingActionButton>(R.id.floating_action_button)
+        fab.setOnClickListener{
+            val intent = Intent(this, Add::class.java)
+            startActivity(intent)
+            Toast.makeText(this,"Fab button clicked", Toast.LENGTH_SHORT).show()
+        }
+
         var bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.selectedItemId = R.id.questions
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
-                R.id.questions -> {
-                    // do something
-                    true
-                }
                 R.id.home -> {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
@@ -45,11 +49,6 @@ class Groups : AppCompatActivity() {
                 }
                 R.id.profile -> {
                     val intent = Intent(this, Profile::class.java)
-                    startActivity(intent)
-                    false
-                }
-                R.id.add_question -> {
-                    val intent = Intent(this, Add::class.java)
                     startActivity(intent)
                     false
                 }
@@ -79,8 +78,6 @@ class Groups : AppCompatActivity() {
         private val mContext: Context
         private val titleSet: ArrayList<String>
         private val infoSet: ArrayList<String>
-
-
         private val names = arrayListOf<String>(
             "Muniker Aragon", "Steve Jobs", "Mark Zuckerberg", "Barack Obama"
         )

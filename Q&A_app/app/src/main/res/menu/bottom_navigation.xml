@@ -13,11 +13,6 @@
         android:icon="@drawable/ic_search_black_24dp"
         android:title="Search"/>
 
-
-    <item android:id="@+id/add_question"
-        android:icon="@drawable/ic_add_circle_black_24dp"
-        android:title="Add"/>
-
     <item android:id="@+id/profile"
         android:icon="@drawable/ic_person_black_24dp"
         android:title="Profile"/>

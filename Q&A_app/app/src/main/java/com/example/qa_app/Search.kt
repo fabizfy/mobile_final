@@ -12,13 +12,15 @@ class Search : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
+        // set search Icon to appear highlighted
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.selectedItemId = R.id.search
+
         bottomNav.setOnNavigationItemSelectedListener{ item ->
             when (item.itemId) {
                 R.id.questions -> {
-                    val intent = Intent(this, Groups::class.java)
-                    startActivity(intent)
+                    val appAPI = ApiRequest(this, null, null)
+                    appAPI.fetchQuestions()
                     false
                 }
                 R.id.home -> {
@@ -28,11 +30,6 @@ class Search : AppCompatActivity() {
                 }
                 R.id.profile -> {
                     val intent = Intent(this, Profile::class.java)
-                    startActivity(intent)
-                    false
-                }
-                R.id.add_question -> {
-                    val intent = Intent(this, Add::class.java)
                     startActivity(intent)
                     false
                 }

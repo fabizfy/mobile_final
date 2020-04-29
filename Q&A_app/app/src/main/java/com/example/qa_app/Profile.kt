@@ -13,24 +13,17 @@ class Profile : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
         bottomNav.selectedItemId = R.id.profile
         bottomNav.setOnNavigationItemSelectedListener{ item ->
             when (item.itemId) {
                 R.id.questions -> {
-                    val intent = Intent(this, Groups::class.java)
-                    startActivity(intent)
+                    val appAPI = ApiRequest(this, null, null)
+                    appAPI.fetchQuestions()
                     false
                 }
                 R.id.home -> {
                     val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    false
-                }
-                R.id.profile -> {
-                    true
-                }
-                R.id.add_question -> {
-                    val intent = Intent(this, Add::class.java)
                     startActivity(intent)
                     false
                 }
@@ -42,5 +35,6 @@ class Profile : AppCompatActivity() {
                 else -> true
             }
         }
+
     }
 }
