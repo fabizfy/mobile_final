@@ -1,6 +1,7 @@
 package com.example.qa_app
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.json.JSONArray
 import org.json.JSONException
 
@@ -27,6 +29,39 @@ class Groups : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_groups)
+
+        var bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.selectedItemId = R.id.questions
+        bottomNav.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.questions -> {
+                    // do something
+                    true
+                }
+                R.id.home -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    false
+                }
+                R.id.profile -> {
+                    val intent = Intent(this, Profile::class.java)
+                    startActivity(intent)
+                    false
+                }
+                R.id.add_question -> {
+                    val intent = Intent(this, Add::class.java)
+                    startActivity(intent)
+                    false
+                }
+                R.id.search -> {
+                    val intent = Intent(this, Search::class.java)
+                    startActivity(intent)
+                    false
+                }
+                else -> true
+            }
+        }
+
         val bundle: Bundle? = intent.extras
         val titleSet = bundle?.get("title_set")
         var infoSet = bundle?.get("info_set")
@@ -40,7 +75,7 @@ class Groups : AppCompatActivity() {
 
 
 
-    private class listViewAdapter(context: Context, titleSet: ArrayList<String>, infoSet:ArrayList<String>): BaseAdapter() {
+    class listViewAdapter(context: Context, titleSet: ArrayList<String>, infoSet:ArrayList<String>): BaseAdapter() {
         private val mContext: Context
         private val titleSet: ArrayList<String>
         private val infoSet: ArrayList<String>

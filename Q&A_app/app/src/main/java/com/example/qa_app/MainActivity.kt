@@ -3,13 +3,6 @@ package com.example.qa_app
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
-import android.widget.Button
-import android.widget.Toast
-import androidx.core.view.get
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -17,8 +10,6 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONException
 
@@ -39,32 +30,33 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.questions -> {
-                    fetchInfo()
-                    true
+                    val intent = Intent(this, Groups::class.java)
+                    startActivity(intent)
+                    false
                 }
                 R.id.home -> {
-                    fetchInfo()
                     true
                 }
                 R.id.profile -> {
-                    fetchInfo()
-                    true
+                    val intent = Intent(this, Profile::class.java)
+                    startActivity(intent)
+                    false
                 }
                 R.id.add_question -> {
-                    fetchInfo()
-                    true
+                    val intent = Intent(this, Add::class.java)
+                    startActivity(intent)
+                    false
                 }
                 R.id.search -> {
-                    fetchInfo()
-                    true
+                    val intent = Intent(this, Search::class.java)
+                    startActivity(intent)
+                    false
                 }
                 else -> true
             }
         }
 
     }
-
-
 
     private fun fetchInfo() {
         var url = "http://35.173.127.87:8000/api/questions"
@@ -83,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     // after retrieval of data, transfer over to Groups activity
-                    var intent = Intent(this, Groups::class.java)
+                    val intent = Intent(this, Groups::class.java)
                     intent.putExtra("title_set", titleSet)
                     intent.putExtra("info_set", infoSet)
                     startActivity(intent)
