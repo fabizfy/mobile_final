@@ -13,10 +13,6 @@ class Profile  : AppCompatActivity() {
         val btn =
             findViewById<View>(R.id.button) as Button
 
-        btn.setOnClickListener {
-            val int1 = Intent(this@Profile, Psychology::class.java)
-            startActivity(int1)
-        }
     }
 
 }

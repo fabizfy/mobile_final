@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId) {
                 R.id.questions -> {
                     fetchInfo()
-                    true
+                    false
                 }
                 R.id.home -> {
                     fetchInfo()
@@ -48,15 +48,16 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.profile -> {
                     fetchInfo()
-                    true
+                    false
                 }
                 R.id.add_question -> {
-                    fetchInfo()
-                    true
+                    val intent = Intent(this, Add::class.java)
+                    startActivity(intent)
+                    false
                 }
                 R.id.search -> {
                     fetchInfo()
-                    true
+                    false
                 }
                 else -> true
             }
@@ -83,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     // after retrieval of data, transfer over to Groups activity
-                    var intent = Intent(this, Groups::class.java)
+                    val intent = Intent(this, Groups::class.java)
                     intent.putExtra("title_set", titleSet)
                     intent.putExtra("info_set", infoSet)
                     startActivity(intent)
