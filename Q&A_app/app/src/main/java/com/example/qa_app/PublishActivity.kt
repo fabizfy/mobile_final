@@ -17,10 +17,12 @@ class PublishActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
 
+        // extract attributes that were passed from previous activity
         val bundle: Bundle? = intent.extras
         val group = bundle?.get("group")
         val category = bundle?.get("category")
 
+        // handle presses in bottom nav bar
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.setOnNavigationItemSelectedListener{ item ->
             when (item.itemId) {
@@ -48,6 +50,7 @@ class PublishActivity : AppCompatActivity() {
             }
         }
 
+        // handle presses in bottom nav bar
         val topAppBar = findViewById<MaterialToolbar>(R.id.topAppBar)
         topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {

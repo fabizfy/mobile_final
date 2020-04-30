@@ -27,8 +27,8 @@ class QuestionsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_groups)
 
-        // set up the bottom navigation
-        var bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        // handle presses in bottom nav ba
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.selectedItemId = R.id.questions
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
@@ -51,13 +51,14 @@ class QuestionsActivity : AppCompatActivity() {
             }
         }
 
-        // unbundle attributes that were passed from previous activity
+        // extract attributes that were passed from previous activity
         val bundle: Bundle? = intent.extras
         val group = bundle?.get("group")
         val category = bundle?.get("category")
         val titleSet = bundle?.get("title_set")
-        var infoSet = bundle?.get("info_set")
+        val infoSet = bundle?.get("info_set")
 
+        // handle presses of POST button
         var fab = findViewById<FloatingActionButton>(R.id.floating_action_button)
         fab.setOnClickListener{
             Toast.makeText(this,"Fab button clicked", Toast.LENGTH_SHORT).show()
@@ -67,7 +68,7 @@ class QuestionsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        // create list view and configure its adapter
         val listView = findViewById<ListView>(R.id.main_listview)
         listView.adapter = listViewAdapter(this, titleSet as ArrayList<String>,
             infoSet as ArrayList<String>

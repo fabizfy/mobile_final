@@ -12,9 +12,9 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+        // handle presses in bottom nav bar
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-
-        bottomNav.selectedItemId = R.id.profile
+        bottomNav.selectedItemId = R.id.profile // set profile item as active
         bottomNav.setOnNavigationItemSelectedListener{ item ->
             when (item.itemId) {
                 R.id.questions -> {
