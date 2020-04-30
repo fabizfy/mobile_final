@@ -22,22 +22,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONArray
 import org.json.JSONException
 
-class Groups : AppCompatActivity() {
-    //private val titles = ArrayList<String>()
-    //private val contents = ArrayList<String>()
-    //private var done = false
-
+class QuestionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_groups)
 
-        var fab = findViewById<FloatingActionButton>(R.id.floating_action_button)
-        fab.setOnClickListener{
-            val intent = Intent(this, Add::class.java)
-            startActivity(intent)
-            Toast.makeText(this,"Fab button clicked", Toast.LENGTH_SHORT).show()
-        }
-
+        // set up the bottom navigation
         var bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.selectedItemId = R.id.questions
         bottomNav.setOnNavigationItemSelectedListener { item ->
@@ -48,12 +38,12 @@ class Groups : AppCompatActivity() {
                     false
                 }
                 R.id.profile -> {
-                    val intent = Intent(this, Profile::class.java)
+                    val intent = Intent(this, ProfileActivity::class.java)
                     startActivity(intent)
                     false
                 }
                 R.id.search -> {
-                    val intent = Intent(this, Search::class.java)
+                    val intent = Intent(this, SearchActivity::class.java)
                     startActivity(intent)
                     false
                 }
@@ -61,9 +51,21 @@ class Groups : AppCompatActivity() {
             }
         }
 
+        // unbundle attributes that were passed from previous activity
         val bundle: Bundle? = intent.extras
+        val group = bundle?.get("group")
+        val category = bundle?.get("category")
         val titleSet = bundle?.get("title_set")
         var infoSet = bundle?.get("info_set")
+
+        var fab = findViewById<FloatingActionButton>(R.id.floating_action_button)
+        fab.setOnClickListener{
+            Toast.makeText(this,"Fab button clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PublishActivity::class.java)
+            intent.putExtra("group", group as String)
+            intent.putExtra("category", category as String)
+            startActivity(intent)
+        }
 
 
         val listView = findViewById<ListView>(R.id.main_listview)

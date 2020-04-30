@@ -12,14 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Add"></activity>
-        <activity android:name=".Search"></activity>
-        <activity android:name=".Profile"></activity>
-        <activity android:name=".Groups" />
-        <activity
-            android:name=".ScrollingActivity"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".PublishActivity" />
+        <activity android:name=".QuestionsActivity" />
+        <activity android:name=".SearchActivity" />
     </application>
 
 </manifest>

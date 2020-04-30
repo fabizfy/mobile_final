@@ -6,13 +6,16 @@ import android.os.Bundle
 import android.view.Window
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class Add : AppCompatActivity() {
+class SearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add)
+        setContentView(R.layout.activity_search)
 
+        // set search Icon to appear highlighted
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNav.selectedItemId = R.id.search
+
         bottomNav.setOnNavigationItemSelectedListener{ item ->
             when (item.itemId) {
                 R.id.questions -> {
@@ -26,14 +29,13 @@ class Add : AppCompatActivity() {
                     false
                 }
                 R.id.profile -> {
-                    val intent = Intent(this, Profile::class.java)
+                    val intent = Intent(this, ProfileActivity::class.java)
                     startActivity(intent)
                     false
                 }
                 R.id.search -> {
-                    val intent = Intent(this, Search::class.java)
-                    startActivity(intent)
-                    false
+                    // do something
+                    true
                 }
                 else -> true
             }

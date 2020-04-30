@@ -45,9 +45,11 @@ class ApiRequest(context: Context, group: String?, category: String? ) {
                     }
 
                     // after retrieval of data, transfer over to Groups activity
-                    val intent = Intent(mContext, Groups::class.java)
+                    val intent = Intent(mContext, QuestionsActivity::class.java)
                     intent.putExtra("title_set", titleSet)
                     intent.putExtra("info_set", infoSet)
+                    intent.putExtra("group", group)
+                    intent.putExtra("category", category)
                     mContext.startActivity(intent)
 
                 } catch (e: JSONException) {

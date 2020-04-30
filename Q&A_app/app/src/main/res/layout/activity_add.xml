@@ -19,6 +19,7 @@
 
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/top_nav_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#322F2F"
@@ -38,15 +39,15 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/groupTextField"
+            android:id="@+id/titleTextField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:hint="@string/group"
-            app:layout_constraintBottom_toTopOf="@+id/subjectTextField"
+            android:layout_marginTop="100dp"
+            android:hint="@string/title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_nav_bar">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -55,39 +56,23 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/subjectTextField"
+            android:id="@+id/contentTextField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="400dp"
-            android:hint="@string/subject"
+            android:layout_height="0dp"
+            android:layout_marginTop="36dp"
+            android:hint="@string/question_box"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextField">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <EditText
-            android:id="@+id/text_box"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:gravity="top"
-            android:inputType="textPersonName"
-            android:text="@string/question_box"
-            android:textColor="#B5ACAC"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/subjectTextField"
-            tools:text="@string/question_box" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
