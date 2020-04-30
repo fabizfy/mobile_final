@@ -16,6 +16,7 @@ class SearchActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.selectedItemId = R.id.search
 
+        // handle presses in bottom nav bar
         bottomNav.setOnNavigationItemSelectedListener{ item ->
             when (item.itemId) {
                 R.id.questions -> {
