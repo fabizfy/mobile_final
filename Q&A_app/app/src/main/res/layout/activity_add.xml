@@ -18,6 +18,25 @@
         app:layout_constraintVertical_bias="0.0">
 
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#322F2F"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#322F2F"
+                app:menu="@menu/top_bar"
+                app:title="Create Post" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/groupTextField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -54,18 +73,21 @@
 
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/text_box"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="32dp"
             android:ems="10"
+            android:gravity="top"
             android:inputType="textPersonName"
-            android:text="Name"
+            android:text="@string/question_box"
+            android:textColor="#B5ACAC"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/subjectTextField" />
+            app:layout_constraintTop_toBottomOf="@+id/subjectTextField"
+            tools:text="@string/question_box" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

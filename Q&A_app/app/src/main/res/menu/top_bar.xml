@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_upload"
+        android:title="File upload"
+        android:contentDescription="Click here upload a document"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_photo"
+        android:title="Image upload"
+        android:contentDescription="Click here to insert an image"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/more"
+        android:contentDescription="Click here to post a question"
+        android:enabled="true"
+        android:icon="@drawable/ic_post_text"
+        android:title="Post"
+        app:showAsAction="ifRoom" />
+
+
+</menu>
