@@ -14,7 +14,7 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        val btn =
+        /*val btn =
             findViewById<View>(R.id.button) as Button
         val btn1 =
             findViewById<View>(R.id.button1) as Button
@@ -33,7 +33,7 @@ class SearchActivity : AppCompatActivity() {
         val btn8 =
             findViewById<View>(R.id.button8) as Button
         val btn9 =
-            findViewById<View>(R.id.button9) as Button
+            findViewById<View>(R.id.button9) as Button*/
 
         // set search Icon to appear highlighted
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
