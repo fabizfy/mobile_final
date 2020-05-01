@@ -30,11 +30,6 @@ class SearchActivity : AppCompatActivity() {
                     startActivity(intent)
                     false
                 }
-                R.id.profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    false
-                }
                 R.id.search -> {
                     // do something
                     true

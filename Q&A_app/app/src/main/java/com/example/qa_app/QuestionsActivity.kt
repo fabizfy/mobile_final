@@ -32,15 +32,9 @@ class QuestionsActivity : AppCompatActivity() {
         bottomNav.selectedItemId = R.id.questions
         bottomNav.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
-                R.id.home -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    false
-                }
-                R.id.profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    false
+                R.id.questions -> {
+
+                    true
                 }
                 R.id.search -> {
                     val intent = Intent(this, SearchActivity::class.java)

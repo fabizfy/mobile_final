@@ -18,7 +18,7 @@ import org.json.JSONException
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_groups)
 
         // handle presses in bottom nav bar
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
@@ -27,16 +27,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.questions -> {
                     val appAPI = ApiRequest(this, null, null)
                     appAPI.fetchQuestions()
-                    false
-                }
-                R.id.home -> {
                     true
                 }
-                R.id.profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    false
-                }
+
                 R.id.search -> {
                     val intent = Intent(this, SearchActivity::class.java)
                     startActivity(intent)
