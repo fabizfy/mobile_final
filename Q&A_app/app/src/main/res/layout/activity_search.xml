@@ -53,11 +53,12 @@
                 android:gravity="center_horizontal">
 
                 <Button
-                    android:id="@+id/button21"
+                    android:id="@+id/art_btn"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_margin="16dp"
                     android:backgroundTint="@color/light_red"
+                    android:onClick="buttonClick"
                     android:text="Art"
                     android:textColor="@color/colorAccent"
                     android:textSize="15sp"
@@ -66,11 +67,12 @@
                     tools:layout_editor_absoluteY="96dp" />
 
                 <Button
-                    android:id="@+id/button22"
+                    android:id="@+id/history_btn"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_margin="16dp"
                     android:backgroundTint="@color/light_red"
+                    android:onClick="buttonClick"
                     android:text="History"
                     android:textColor="@color/colorAccent"
                     android:textSize="14sp"
@@ -90,34 +92,36 @@
 
 
                 <Button
-                    android:id="@+id/button23"
+                    android:id="@+id/science_btn"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_margin="16dp"
                     android:backgroundTint="@color/light_red"
+                    android:onClick="buttonClick"
                     android:text="Science"
                     android:textColor="@color/colorAccent"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/button24"
+                    app:layout_constraintEnd_toStartOf="@+id/biology_btn"
                     app:layout_constraintHorizontal_bias="0.431"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button21" />
+                    app:layout_constraintTop_toBottomOf="@+id/art_btn" />
 
                 <Button
-                    android:id="@+id/button24"
+                    android:id="@+id/biology_btn"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_margin="16dp"
                     android:layout_marginEnd="72dp"
                     android:layout_marginRight="72dp"
                     android:backgroundTint="@color/light_red"
+                    android:onClick="buttonClick"
                     android:text="Biology"
                     android:textColor="@color/colorAccent"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button22" />
+                    app:layout_constraintTop_toBottomOf="@+id/history_btn" />
 
 
             </TableRow>
@@ -129,34 +133,36 @@
 
 
                 <Button
-                    android:id="@+id/button27"
+                    android:id="@+id/math_btn"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_margin="16dp"
                     android:backgroundTint="@color/light_red"
+                    android:onClick="buttonClick"
                     android:text="Math"
                     android:textColor="@color/colorAccent"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/button28"
+                    app:layout_constraintEnd_toStartOf="@+id/physics_btn"
                     app:layout_constraintHorizontal_bias="0.447"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button23" />
+                    app:layout_constraintTop_toBottomOf="@+id/science_btn" />
 
                 <Button
-                    android:id="@+id/button28"
+                    android:id="@+id/physics_btn"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_margin="16dp"
                     android:layout_marginEnd="72dp"
                     android:layout_marginRight="72dp"
                     android:backgroundTint="@color/light_red"
+                    android:onClick="buttonClick"
                     android:text="Physics"
                     android:textColor="@color/colorAccent"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button24" />
+                    app:layout_constraintTop_toBottomOf="@+id/biology_btn" />
             </TableRow>
 
             <TableRow
@@ -166,35 +172,37 @@
 
 
                 <Button
-                    android:id="@+id/button29"
+                    android:id="@+id/health_btn"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_margin="16dp"
                     android:layout_marginEnd="72dp"
                     android:layout_marginRight="72dp"
                     android:backgroundTint="@color/light_red"
+                    android:onClick="buttonClick"
                     android:text="Health"
                     android:textColor="@color/colorAccent"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/button30"
+                    app:layout_constraintEnd_toStartOf="@+id/music_btn"
                     app:layout_constraintHorizontal_bias="0.888"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button27" />
+                    app:layout_constraintTop_toBottomOf="@+id/math_btn" />
 
                 <Button
-                    android:id="@+id/button30"
+                    android:id="@+id/music_btn"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_margin="16dp"
                     android:layout_marginEnd="72dp"
                     android:backgroundTint="@color/light_red"
+                    android:onClick="buttonClick"
                     android:text="Music"
                     android:textColor="@color/colorAccent"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button28" />
+                    app:layout_constraintTop_toBottomOf="@+id/physics_btn" />
             </TableRow>
 
             <TableRow
@@ -203,36 +211,38 @@
                 android:gravity="center_horizontal">
 
                 <Button
-                    android:id="@+id/button31"
+                    android:id="@+id/english_btn"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_margin="16dp"
                     android:layout_marginStart="72dp"
                     android:layout_marginLeft="72dp"
                     android:backgroundTint="@color/light_red"
+                    android:onClick="buttonClick"
                     android:text="ENGLISH"
                     android:textColor="@color/colorAccent"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/button32"
+                    app:layout_constraintEnd_toStartOf="@+id/esl_btn"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button29" />
+                    app:layout_constraintTop_toBottomOf="@+id/health_btn" />
 
                 <Button
-                    android:id="@+id/button32"
+                    android:id="@+id/esl_btn"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_margin="16dp"
                     android:layout_marginEnd="72dp"
                     android:layout_marginRight="72dp"
                     android:backgroundTint="@color/light_red"
+                    android:onClick="buttonClick"
                     android:text="ESL"
                     android:textColor="@color/colorAccent"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button30" />
+                    app:layout_constraintTop_toBottomOf="@+id/music_btn" />
             </TableRow>
         </TableLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

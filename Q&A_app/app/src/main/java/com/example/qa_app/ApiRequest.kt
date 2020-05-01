@@ -11,7 +11,7 @@ import org.json.JSONException
 
 class ApiRequest(context: Context, group: String?, category: String? ) {
     private val mContext: Context
-    private var group = "WSU"
+    private var group = "global"
     private var category = "math"
     private val urlGet = "http://35.173.127.87:8000/api/questions"
     private val queue: RequestQueue
