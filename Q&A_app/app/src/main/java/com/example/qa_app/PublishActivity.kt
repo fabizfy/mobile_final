@@ -31,16 +31,6 @@ class PublishActivity : AppCompatActivity() {
                     appAPI.fetchQuestions()
                     false
                 }
-                R.id.home -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    false
-                }
-                R.id.profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    false
-                }
                 R.id.search -> {
                     val intent = Intent(this, SearchActivity::class.java)
                     startActivity(intent)
