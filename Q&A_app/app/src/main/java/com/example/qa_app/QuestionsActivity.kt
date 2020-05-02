@@ -68,6 +68,10 @@ class QuestionsActivity : AppCompatActivity() {
         listView.adapter = listViewAdapter(this, titleSet as ArrayList<String>,
             infoSet as ArrayList<String>, idSet as ArrayList<String>
         )
+            /*listView.setOnItemClickListener{ parent, view, position, id ->
+            val row = parent.getItemAtPosition(position)
+            Toast.makeText(this, row.toString(), Toast.LENGTH_LONG).show()
+        }*/
     }
 
 
@@ -77,9 +81,6 @@ class QuestionsActivity : AppCompatActivity() {
         private val titleSet: ArrayList<String>
         private val infoSet: ArrayList<String>
         private val idSet: ArrayList<String>
-        private val names = arrayListOf<String>(
-            "Muniker Aragon", "Steve Jobs", "Mark Zuckerberg", "Barack Obama"
-        )
         init{
             mContext = context
             this.titleSet = titleSet
