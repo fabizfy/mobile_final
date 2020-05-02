@@ -35,11 +35,6 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     false
                 }
-                R.id.profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    false
-                }
                 else -> true
             }
         }
