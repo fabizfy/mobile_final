@@ -57,6 +57,7 @@ class QuestionsActivity : AppCompatActivity() {
         val category = bundle?.get("category")
         val titleSet = bundle?.get("title_set")
         val infoSet = bundle?.get("info_set")
+        val idSet = bundle?.get("question_id_set")
 
         // handle presses of POST button
         var fab = findViewById<FloatingActionButton>(R.id.floating_action_button)
@@ -71,16 +72,17 @@ class QuestionsActivity : AppCompatActivity() {
         // create list view and configure its adapter
         val listView = findViewById<ListView>(R.id.main_listview)
         listView.adapter = listViewAdapter(this, titleSet as ArrayList<String>,
-            infoSet as ArrayList<String>
+            infoSet as ArrayList<String>, idSet as ArrayList<String>
         )
     }
 
 
 
-    class listViewAdapter(context: Context, titleSet: ArrayList<String>, infoSet:ArrayList<String>): BaseAdapter() {
+    class listViewAdapter(context: Context, titleSet: ArrayList<String>, infoSet:ArrayList<String>, idSet:ArrayList<String>): BaseAdapter() {
         private val mContext: Context
         private val titleSet: ArrayList<String>
         private val infoSet: ArrayList<String>
+        private val idSet: ArrayList<String>
         private val names = arrayListOf<String>(
             "Muniker Aragon", "Steve Jobs", "Mark Zuckerberg", "Barack Obama"
         )
@@ -88,6 +90,7 @@ class QuestionsActivity : AppCompatActivity() {
             mContext = context
             this.titleSet = titleSet
             this.infoSet = infoSet
+            this.idSet = idSet
 
         }
         // responsible for how many rows in list
@@ -110,8 +113,7 @@ class QuestionsActivity : AppCompatActivity() {
             val rowMain = layoutInflater.inflate(R.layout.row_main, null, false)
 
             val nameTextView = rowMain.findViewById<TextView>(R.id.name_textView)
-            nameTextView.text = titleSet[position]
-            //nameTextView.text = names.get(position)
+            nameTextView.text = titleSet[position] + idSet[position]
             val positionTextView = rowMain.findViewById<TextView>(R.id.position_textview)
             positionTextView.text = infoSet[position]
             return rowMain
@@ -121,3 +123,8 @@ class QuestionsActivity : AppCompatActivity() {
 
     }
 }
+
+
+// when user clicks on a question ---> you will be able to see answers and add an answer
+// use Apirequest to request all answere from a given question id ----> go to answer activity
+// have button to add an answer

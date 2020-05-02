@@ -34,7 +34,8 @@ class ApiRequest(context: Context, group: String?, category: String? ) {
             Response.Listener<String> { response ->
                 try {
                     val titleSet = ArrayList<String>()
-                    var infoSet = ArrayList<String>()
+                    val infoSet = ArrayList<String>()
+                    val idSet = ArrayList<String>()
 
                     val obj = JSONArray(response)
                     val size = obj.length()
@@ -42,12 +43,14 @@ class ApiRequest(context: Context, group: String?, category: String? ) {
                         val question = obj.getJSONObject(i)
                         titleSet.add(question["title"].toString())
                         infoSet.add(question["content"].toString())
+                        idSet.add(question["id"].toString())
                     }
 
                     // after retrieval of data, transfer over to Groups activity
                     val intent = Intent(mContext, QuestionsActivity::class.java)
                     intent.putExtra("title_set", titleSet)
                     intent.putExtra("info_set", infoSet)
+                    intent.putExtra("question_id_set", idSet)
                     intent.putExtra("group", group)
                     intent.putExtra("category", category)
                     mContext.startActivity(intent)
