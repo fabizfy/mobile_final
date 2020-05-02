@@ -52,6 +52,7 @@ class PublishActivity : AppCompatActivity() {
                     val publishApi = ApiPublish(this, group as String,
                         category as String, title, content)
                     publishApi.publishQuestion()
+                    finish()
                     true
                 }
                 R.id.file_upload -> {
