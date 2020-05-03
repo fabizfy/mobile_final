@@ -51,6 +51,7 @@ class QuestionsActivity : AppCompatActivity() {
         val category = bundle?.get("category")
         val titleSet = bundle?.get("title_set")
         val infoSet = bundle?.get("info_set")
+        val idSet = bundle?.get("id_set")
 
         // handle presses of POST button
         var fab = findViewById<FloatingActionButton>(R.id.floating_action_button)
@@ -65,23 +66,29 @@ class QuestionsActivity : AppCompatActivity() {
         // create list view and configure its adapter
         val listView = findViewById<ListView>(R.id.main_listview)
         listView.adapter = listViewAdapter(this, titleSet as ArrayList<String>,
-            infoSet as ArrayList<String>
+            infoSet as ArrayList<String>, idSet as ArrayList<String>
         )
+        listView.setOnItemClickListener{ parent, view, position, id ->
+            val title = titleSet[position]
+            val content = infoSet[position]
+            val questionId = idSet[position]
+            val requestApi = ApiRequest(this, group as String, category as String)
+            requestApi.fetchAnswers(questionId, title, content)
+        }
     }
 
 
 
-    class listViewAdapter(context: Context, titleSet: ArrayList<String>, infoSet:ArrayList<String>): BaseAdapter() {
+    class listViewAdapter(context: Context, titleSet: ArrayList<String>, infoSet:ArrayList<String>, idSet:ArrayList<String>): BaseAdapter() {
         private val mContext: Context
         private val titleSet: ArrayList<String>
         private val infoSet: ArrayList<String>
-        private val names = arrayListOf<String>(
-            "Muniker Aragon", "Steve Jobs", "Mark Zuckerberg", "Barack Obama"
-        )
+        private val idSet: ArrayList<String>
         init{
             mContext = context
             this.titleSet = titleSet
             this.infoSet = infoSet
+            this.idSet = idSet
 
         }
         // responsible for how many rows in list
@@ -95,7 +102,7 @@ class QuestionsActivity : AppCompatActivity() {
         }
 
         override fun getItem(position: Int): Any {
-            return "TEST STRING"
+            return position
         }
 
         // responsible for rendering each row
@@ -104,7 +111,7 @@ class QuestionsActivity : AppCompatActivity() {
             val rowMain = layoutInflater.inflate(R.layout.row_main, null, false)
 
             val nameTextView = rowMain.findViewById<TextView>(R.id.name_textView)
-            nameTextView.text = titleSet[position]
+            nameTextView.text = "${titleSet[position]}  id: ${idSet[position]}"
             //nameTextView.text = names.get(position)
             val positionTextView = rowMain.findViewById<TextView>(R.id.position_textview)
             positionTextView.text = infoSet[position]
