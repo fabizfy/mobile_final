@@ -25,8 +25,8 @@ class SearchActivity : AppCompatActivity() {
                     appAPI.fetchQuestions()
                     false
                 }
-                R.id.home -> {
-                    val intent = Intent(this, MainActivity::class.java)
+                R.id.profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
                     startActivity(intent)
                     false
                 }

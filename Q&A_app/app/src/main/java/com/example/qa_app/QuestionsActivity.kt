@@ -28,6 +28,11 @@ class QuestionsActivity : AppCompatActivity() {
 
                     true
                 }
+                R.id.profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    false
+                }
                 R.id.search -> {
                     val intent = Intent(this, SearchActivity::class.java)
                     startActivity(intent)
