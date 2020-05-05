@@ -24,6 +24,7 @@
         <activity android:name=".PublishActivity" />
         <activity android:name=".QuestionsActivity" />
         <activity android:name=".SearchActivity" />
+        <activity android:name=".ProfileActivity" />
     </application>
 
 </manifest>
