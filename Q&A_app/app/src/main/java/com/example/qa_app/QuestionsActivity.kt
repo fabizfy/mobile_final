@@ -11,16 +11,8 @@ import android.widget.BaseAdapter
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
-import com.android.volley.AuthFailureError
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.VolleyError
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import org.json.JSONArray
-import org.json.JSONException
 
 class QuestionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -113,7 +105,7 @@ class QuestionsActivity : AppCompatActivity() {
             val nameTextView = rowMain.findViewById<TextView>(R.id.name_textView)
             nameTextView.text = "${titleSet[position]}  id: ${idSet[position]}"
             //nameTextView.text = names.get(position)
-            val positionTextView = rowMain.findViewById<TextView>(R.id.position_textview)
+            val positionTextView = rowMain.findViewById<TextView>(R.id.answer_textview)
             positionTextView.text = infoSet[position]
             return rowMain
 

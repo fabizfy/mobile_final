@@ -17,11 +17,13 @@ class ApiPublish(context: Context, group: String, category: String, title: Strin
     private val mContext: Context
     private val queue: RequestQueue
     private val urlPost: String
+    private val urlPostAnswer: String
 
     init{
         mContext = context
         queue = Volley.newRequestQueue(mContext)
         urlPost = "http://35.173.127.87:8000/api/publish"
+        urlPostAnswer = "http://35.173.127.87:8000/api/publish_answer"
         this.title = title
         this.content = content
         this.group = group
@@ -60,4 +62,41 @@ class ApiPublish(context: Context, group: String, category: String, title: Strin
         //adding request to queue
         queue.add(stringRequest)
     }
+
+    fun publishAnswer(questionId:String, content: String) {
+        val stringRequest = object : StringRequest(
+            Request.Method.POST, urlPostAnswer,
+            Response.Listener<String> { response ->
+                try {
+                    val obj = JSONArray(response)
+                    // after retrieval of data, transfer over to Main activity
+                    val intent = Intent(mContext, QuestionsActivity::class.java)
+                    mContext.startActivity(intent)
+
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            object : Response.ErrorListener {
+                override fun onErrorResponse(volleyError: VolleyError) {
+                    Toast.makeText(mContext, "Error publishing question", Toast.LENGTH_LONG).show()
+                }
+            }) {
+            @Throws(AuthFailureError::class)
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+                params.put("questionId", questionId )
+                params.put("content", content)
+                return params
+            }
+        }
+        //adding request to queue
+        queue.add(stringRequest)
+    }
+
+
+
+
+
+
 }

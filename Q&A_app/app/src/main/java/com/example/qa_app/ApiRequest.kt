@@ -91,11 +91,12 @@ class ApiRequest(context: Context, group: String?, category: String? ) {
                         responseSet.add(res["content"].toString())
                     }
 
-                    // after retrieval of data, transfer over to Groups activity
+                    // after retrieval of data, transfer over to activity
                     val intent = Intent(mContext, SeeAnswersActivity::class.java)
                     intent.putExtra("question_title", title)
                     intent.putExtra("question_content", content)
                     intent.putExtra("response_set", responseSet)
+                    intent.putExtra("question_id", questionId)
 
                     println("question_title: " + title)
                     println("question_content: " + content)
