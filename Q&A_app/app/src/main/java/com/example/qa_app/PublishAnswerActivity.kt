@@ -1,9 +1,11 @@
 package com.example.qa_app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_add.*
 
 class PublishAnswerActivity : AppCompatActivity() {
@@ -15,7 +17,23 @@ class PublishAnswerActivity : AppCompatActivity() {
         // extract attributes that were passed from previous activity
         val bundle: Bundle? = intent.extras
         val questionId = bundle?.get("question_id")
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.questions -> {
+                    val appAPI = ApiRequest(this, null, null)
+                    appAPI.fetchQuestions()
+                    false
+                }
 
+                R.id.search -> {
+                    val intent = Intent(this, SearchActivity::class.java)
+                    startActivity(intent)
+                    false
+                }
+                else -> true
+            }
+        }
 
         // handle presses in bottom nav bar
         val topAppBar = findViewById<MaterialToolbar>(R.id.topAppBar)

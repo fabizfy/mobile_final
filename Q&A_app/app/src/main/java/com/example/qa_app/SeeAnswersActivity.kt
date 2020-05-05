@@ -11,6 +11,7 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class SeeAnswersActivity : AppCompatActivity() {
@@ -25,6 +26,24 @@ class SeeAnswersActivity : AppCompatActivity() {
         val title = bundle?.get("question_title")
         val content = bundle?.get("question_content")
         val responseSet = bundle?.get("response_set") as ArrayList<String>
+
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.questions -> {
+                    val appAPI = ApiRequest(this, null, null)
+                    appAPI.fetchQuestions()
+                    false
+                }
+
+                R.id.search -> {
+                    val intent = Intent(this, SearchActivity::class.java)
+                    startActivity(intent)
+                    false
+                }
+                else -> true
+            }
+        }
 
         // display question title
         val titleTextBox = findViewById<TextView>(R.id.question_title)
