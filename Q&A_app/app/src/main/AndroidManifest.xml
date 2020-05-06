@@ -14,6 +14,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".PublishAnswerActivity"></activity>
         <activity android:name=".SeeAnswersActivity" />
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

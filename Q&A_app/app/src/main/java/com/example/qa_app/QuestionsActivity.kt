@@ -50,8 +50,11 @@ class QuestionsActivity : AppCompatActivity() {
         val infoSet = bundle?.get("info_set")
         val idSet = bundle?.get("id_set")
 
+        val categoryText = findViewById<TextView>(R.id.category)
+        categoryText.text = category as String
+
         // handle presses of POST button
-        var fab = findViewById<FloatingActionButton>(R.id.floating_action_button)
+        val fab = findViewById<FloatingActionButton>(R.id.floating_action_button)
         fab.setOnClickListener{
             Toast.makeText(this,"Fab button clicked", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, PublishActivity::class.java)
